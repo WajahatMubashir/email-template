@@ -4,8 +4,35 @@
 
     <head>
         <title>HTML EMAIL TEMPLATE</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;1,300&display=swap"
+            rel="stylesheet">
+        <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+            integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p"
+            crossorigin="anonymous" />
+
         <style>
+            :root {
+                --accent: #fec232;
+            }
+
+            * {
+                font-family: 'Open Sans', sans-serif;
+            }
+
+            /* MEDIA QUERIES */
             @media screen and (max-width: 600px) {
+                body {
+                    margin: 0;
+                    padding: 0%;
+                    width: 100%;
+                }
+
+                .wrapper {
+                    width: 100vw;
+                }
+
                 #footer-section {
                     padding: 0 3px;
                 }
@@ -13,9 +40,24 @@
                 #event-detail {
                     padding: 0 3px;
                 }
+
+                #table-cells th,
+                td {
+                    padding: 0 10px;
+                }
+
+                #content {
+                    margin: 0 58px;
+                }
+
             }
 
             @media screen and (max-width: 400px) {
+                body {
+                    margin: 0;
+                    padding: 0;
+                }
+
                 #footer-section {
                     padding: 0 3px;
                 }
@@ -23,15 +65,24 @@
                 #event-detail {
                     padding: 0 5px;
                 }
+
+                #table-cells th,
+                td {
+                    padding: 10px;
+                }
+
+            }
+
+            .dark-mode {
+                filter: invert(1) hue-rotate(180deg)
             }
 
         </style>
     </head>
 
-    <body
-        style="margin: 0; padding: 0; background-color: #f6f9fc; line-height: 30px; font-family: 'Times New Roman', Times, serif;">
-        <center class="wrapper"
-            style="width: 100%; table-layout: fixed; background-color: #f6f9fc; padding-bottom: 40px;">
+    <body style="margin: 0; padding: 0; line-height: 30px; padding-top: 10vh;
+        background-color: #f6f9fc;">
+        <center class="wrapper" style="width: 100%; table-layout: fixed; padding-bottom: 40px;">
             <div class="webkit" style="max-width: 600px; background-color: #f6f6f6;">
 
                 <table class="outer" align:"center"
@@ -43,10 +94,10 @@
                             <!--Header Logo-->
                             <table width="100%;" style="border-spacing: 0;">
                                 <tr>
-                                    <td style="background-color: #fad586; padding: 10px; text-align: center;"
-                                        bgcolor="#fad586" align="center">
-                                        <a href=""><img src="https://i.ibb.co/3fCkQyc/logo.png" width="180"; alt="logo" title="logo"
-                                                style="border: none;"></a>
+                                    <td style="background-color:var(--accent); padding: 10px; text-align: center;"
+                                        bgcolor=var(--accent); align="center">
+                                        <a href=""><img src="https://i.ibb.co/3fCkQyc/logo.png" width="180" ; alt="logo"
+                                                title="logo" loading="lazy" style="border: none;"></a>
                                     </td>
                                 </tr>
                             </table>
@@ -59,22 +110,25 @@
                         <td style="padding: 0;">
                             <table style="border-spacing: 0;">
                                 <tr>
-                                    <td style="padding: 2px 20px;">
-                                        <p><strong>Jhon Doe,</strong> <br><br>
-                                            Thank you for registering for our upcoming Webinar. This is an
+                                    <td id="content" style="padding: 0 20px;">
+                                        <p style="margin: 18px 0;"><strong>Jhon Doe,</strong> </p>
+                                        <p>Thank you for registering for our upcoming Webinar. This is an
                                             auto-generated email
                                             confirming receipt of your registration to our upcoming webinar.
                                             The details of your
                                             registration follow. We look forward to seeing you.</p>
                                     </td>
                                 </tr>
-
                                 <!--Event Name & Title-->
                                 <tr>
                                     <td id="event-detail">
-                                        <h4 style="text-align: center; color: #fad586;">
-                                            [Test] [Test
-                                            February 16]
+                                        <h3
+                                            style="text-align: center; color:var(--accent); font-size: 24px; margin: 0;">
+                                            [Test]
+                                        </h3>
+                                        <h4
+                                            style="text-align: center; color:var(--accent); font-size: 24px; margin: 0;">
+                                            [Test February 16]
                                         </h4>
                                     </td>
                                 </tr>
@@ -85,8 +139,9 @@
 
                     <!--Details Columns-->
                     <tr>
-                        <td style="padding: 2px 20px;">
-                            <table style="border-spacing: 0; border-collapse: collapse; width: 100%;" width="100%">
+                        <td id="content-data-bg" style="padding: 23px 20px;">
+                            <table id="table-cells" style="border-spacing: 0; border-collapse: collapse; width: 100%;"
+                                width="100%">
                                 <tr>
                                     <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">
                                         Date</th>
@@ -110,21 +165,33 @@
                         </td>
                     </tr>
 
+
+
                     <!--FOOTER-->
                     <tr>
                         <td style="padding: 2px 20px;">
-                            <footer
-                                style="display: grid; place-items:center; border: 1px solid grey; margin: 20px auto">
-                                <p id="footer-section" style=" text-align: left;">
-                                    <strong>First Name:</strong> Jhon <br>
-                                    <strong>Last Name:</strong> Doe <br>
-                                    <strong>Phone Name:</strong> (123) 111-1234 <br><br>
+                            <footer style="border: 1px solid grey; margin: 20px auto">
+                                <p id="footer-section" style=" text-align: left;  padding-left: 5px;">
+                                    <strong>First Name:</strong> Jhon
+                                </p>
+
+                                <p id=" footer-section" style=" text-align: left;  padding-left: 5px;">
+                                    <strong>Last Name:</strong> Doe
+                                </p>
+
+                                <p id=" footer-section" style=" text-align: left;  padding-left: 5px;">
+                                    <strong>Phone Name:</strong> (123) 111-1234
+                                </p>
+                                <p style=" text-align: left; padding-left: 5px;">
                                     If you have any questions, please feel free to contact us at (513) 721-1513.
                                 </p>
                             </footer>
                         </td>
                     </tr>
 
+                    <tr>
+                        <td style="padding:10px 20px">Thanks for shopping with us.</td>
+                    </tr>
                 </table>
 
 
@@ -132,6 +199,21 @@
             </div>
         </center>
 
+        <div>
+            <p style="text-align: center;">Built with WP Events</p>
+        </div>
+
+        <a id="dark" style="position: absolute; right: 20px; top: 10px; cursor: pointer; font-size: 30px;"><i
+                class="fas fa-adjust"></i></a>
+
+        <script>
+            let button = document.getElementById('dark');
+
+            button.addEventListener('click', () => {
+                document.documentElement.classList.toggle('dark-mode');
+            });
+
+        </script>
     </body>
 
 </html>
