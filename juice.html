@@ -15,6 +15,9 @@
         <style>
             :root {
                 --accent: #fec232;
+                --accentdark: #743800;
+                --bgdark: #04070a;
+                --tabledark: #0d0d0d;
             }
 
             * {
@@ -73,15 +76,49 @@
 
             }
 
-            .dark-mode {
-                filter: invert(1) hue-rotate(180deg)
+
+/* DARK MODE */
+            @media (prefers-color-scheme: dark) {
+                body{
+                    background-color: #04070a;
+                    color: #9b9b9b;
+                }
+                .accent-dark{
+                    color: var(--accent);
+                }
+                #content-data-bg th, td{
+                    background-color: var(--tabledark);
+                    color: #9b9b9b;
+                }
+                #event-details{
+                    background-color: #04070a;
+                }
+            }
+
+
+/* LIGHT MODE */
+            @media (prefers-color-scheme: light) {
+                body{
+                    background-color: #f6f9fc;;
+                    color: #9b9b9b;
+                }
+                .accent-dark{
+                    color:var(--accent);
+                }
+                #content-data-bg th, td{
+                    background-color:white;
+                    color: black;
+                }
+                #content-data-bg th{
+                    background-color: #f2f2f2;
+                    color: black;
+                }
             }
 
         </style>
     </head>
 
-    <body style="margin: 0; padding: 0; line-height: 30px; padding-top: 10vh;
-        background-color: #f6f9fc;">
+    <body style="margin: 0; padding: 0; line-height: 30px; padding-top: 10vh;">
         <center class="wrapper" style="width: 100%; table-layout: fixed; padding-bottom: 40px;">
             <div class="webkit" style="max-width: 600px; background-color: #f6f6f6;">
 
@@ -94,7 +131,7 @@
                             <!--Header Logo-->
                             <table width="100%;" style="border-spacing: 0;">
                                 <tr>
-                                    <td style="background-color:var(--accent); padding: 10px; text-align: center;"
+                                    <td class='accent-dark' style="background-color:var(--accent); padding: 10px; text-align: center;"
                                         bgcolor=var(--accent); align="center">
                                         <a href=""><img src="https://i.ibb.co/3fCkQyc/logo.png" width="180" ; alt="logo"
                                                 title="logo" loading="lazy" style="border: none;"></a>
@@ -122,12 +159,12 @@
                                 <!--Event Name & Title-->
                                 <tr>
                                     <td id="event-detail">
-                                        <h3
-                                            style="text-align: center; color:var(--accent); font-size: 24px; margin: 0;">
+                                        <h3 class='accent-dark'
+                                            style="text-align: center; font-size: 24px; margin: 0;">
                                             [Test]
                                         </h3>
-                                        <h4
-                                            style="text-align: center; color:var(--accent); font-size: 24px; margin: 0;">
+                                        <h4 class='accent-dark'
+                                            style="text-align: center; font-size: 24px; margin: 0;">
                                             [Test February 16]
                                         </h4>
                                     </td>
@@ -143,13 +180,13 @@
                             <table id="table-cells" style="border-spacing: 0; border-collapse: collapse; width: 100%;"
                                 width="100%">
                                 <tr>
-                                    <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">
+                                    <th style="border: 1px solid #ddd; padding: 8px; ;">
                                         Date</th>
-                                    <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">
+                                    <th style="border: 1px solid #ddd; padding: 8px; ;">
                                         Time</th>
-                                    <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">
+                                    <th style="border: 1px solid #ddd; padding: 8px; ;">
                                         Venue</th>
-                                    <th style="border: 1px solid #ddd; padding: 8px; background-color: #f2f2f2;">
+                                    <th style="border: 1px solid #ddd; padding: 8px; ;">
                                         Seats</th>
                                 </tr>
                                 <tr>
@@ -202,18 +239,6 @@
         <div>
             <p style="text-align: center;">Built with WP Events</p>
         </div>
-
-        <a id="dark" style="position: absolute; right: 20px; top: 10px; cursor: pointer; font-size: 30px;"><i
-                class="fas fa-adjust"></i></a>
-
-        <script>
-            let button = document.getElementById('dark');
-
-            button.addEventListener('click', () => {
-                document.documentElement.classList.toggle('dark-mode');
-            });
-
-        </script>
     </body>
 
 </html>
